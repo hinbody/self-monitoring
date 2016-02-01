@@ -7,7 +7,7 @@ http://ptsd.about.com/od/selfhelp/ht/selfmonitor.htm and store them in an SQLite
 database
 
 ## DISCLAIMER
-I am neither a doctor or medical professional. This is based off of an
+I am neither a doctor nor medical professional. This is based off of an
 interesting article that I found, and is being created for the sole purpose of
 my programming education.
 
