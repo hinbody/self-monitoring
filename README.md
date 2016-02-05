@@ -15,6 +15,9 @@ my programming education.
 If you feel that you have PTSD or any other mental illness, please see a doctor
 or other medical professional that can give you the help you may need. 
 
+## Functions
+log_feelings() accepts a 7 item list and stores it in an sqlite3 database
+
 ## Data
 The data that will be received and stored into the database:
 - date and time
