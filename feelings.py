@@ -16,8 +16,11 @@ connect = sqlite3.connect('feelings.db')
 cursor = connect.cursor()
 cursor.execute(create_table)
 
-#def log_feelings(situation, thoughts, ti, emotions, ei, pyhs_sensations, pi):
 def log_feelings(entry):
+  """Inserts a log of feelings into the database.
+  
+  Accepts 7 item list, then adds it plus the current time to the database
+  """
   if len(entry) == 7 and type(entry) is list:
     time = datetime.datetime.now().isoformat()
     entry.append(time)
