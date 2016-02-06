@@ -31,4 +31,14 @@ def log_feelings(entry):
     connect.commit()
   else:
     print('the list must contain 7 items')
+
+def get_intense():
+  """Get intense emotions.
+
+  Gets entries with an emotion_intensity of 7 or more.
+  **NOTE** 7 is an arbitrary number I chose. It means nothing.
+  """
+  f = cursor.execute("""SELECT * FROM feelings WHERE emotions_intensity >= 7""")
+  return f.fetchall()
+
 connect.commit()
