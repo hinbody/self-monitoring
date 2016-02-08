@@ -41,4 +41,15 @@ def get_intense():
   f = cursor.execute("""SELECT * FROM feelings WHERE emotions_intensity >= 7""")
   return f.fetchall()
 
+def get_emotions():
+  """ Get list and count of all emotions."""
+
+  f = cursor.execute("""SELECT emotions FROM feelings""")
+  emo = {}
+
+  for row in f:
+    for e in row:
+      emo[e] = emo.get(e, 1)
+  return emo
+
 connect.commit()
