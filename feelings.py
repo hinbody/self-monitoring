@@ -52,4 +52,13 @@ def get_emotions():
       emo[e] = emo.get(e, 1)
   return emo
 
+def get_entries_for_emotion(emo):
+  """Get all entries for a particular emotion.
+  
+  Returns a list of all entries containg the emotion represented by emo
+  """
+
+  e = cursor.execute("SELECT * FROM feelings WHERE emotions=?", (emo,))
+  return e.fetchall()
+
 connect.commit()
