@@ -61,4 +61,33 @@ def get_entries_for_emotion(emo):
   e = cursor.execute("SELECT * FROM feelings WHERE emotions=?", (emo,))
   return e.fetchall()
 
+def avg_emo_intensity():
+  """Get average intensity for each emotion."""
+
+  emotions = []
+  emotions_avg = {}
+  emos = cursor.execute("SELECT emotions FROM feelings")
+  for e in emos:
+    if e[0] in emotions:
+      print('')
+    else:
+      emotions.append(e[0])
+
+  for e in emotions:
+    print('emotion:', e)
+    count = 0
+    emos_intense = cursor.execute("""SELECT emotions, emotions_intensity FROM
+    feelings WHERE emotions = ?""", (e,))# ('emotions', e))
+    emotions_avg[e] = 0
+    for emo in emos_intense:
+      count = count + 1
+      print(e, 'intensity:', emo[1])
+      emotions_avg[e] = emotions_avg[e] + emo[1]
+      avg = emotions_avg[e]  / count
+      print(e,'average',avg)
+
+
+#  for e in emotions:
+#    print(e, 'is type:', type(e))
+
 connect.commit()
